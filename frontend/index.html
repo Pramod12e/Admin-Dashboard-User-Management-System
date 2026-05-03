@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard & User Management System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar hidden">
+  <h1>Admin Dashboard</h1>
+  <div class="nav-right">
+    <button class="btn"><a href="http://localhost:3000/admin">Admin</a></button>
+    <button class="btn" id="logoutBtn">Logout</button>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div id="loginPage" class="page">
+  <div class="form-box">
+    
+    <form id="loginForm">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" name="emal" required>
+      <input type="password" placeholder="Password" name="password" required>
+      <button class="btn" type="submit">Login</button>
+    </form>
+
+    <div class="switch">
+        Don't have account? <span id="goSignup">Signup</span>
+      </div>
+  </div>
+</div>
+
+<!-- SIGNUP -->
+<div id="signupPage" class="page">
+  <div class="form-box">
+    <form action="http://localhost:3000/signup" method="post">
+        <h2>Signup</h2>
+        <input type="text" placeholder="Name" name="username">
+        <input type="email" placeholder="Email" name="emal">
+        <input type="password" placeholder="Password" name="password">
+        <button class="btn">Signup</button>
+    </form>
+    <div class="switch">Have account? <span id="goLogin">Login</span></div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboardPage" class="page">
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="menu">menu</div>
+      <a href="#" id="homeBtn">🏠 Home</a>
+      <a href="#" id="usersBtn">👥 Users</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main" id="mainContent">
+
+      <!-- HOME -->
+      <div id="homeSection" class="card">
+
+        <h2>Welcome Admin 👋</h2>
+        <p>Here’s a quick overview of your system</p>
+
+        <div class="stats">
+
+          <div class="stat-card">
+            <h3 id="totalUsers">0</h3>
+            <p>Total Users</p>
+          </div>
+
+          <div class="stat-card">
+            <h3 id="adminCount">0</h3>
+            <p>Admins</p>
+          </div>
+
+          <div class="stat-card">
+            <h3 id="normalUsers">0</h3>
+            <p>Normal Users</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- USERS -->
+      <div id="userSection" class="card" style="display:none;">
+        <h2>User List</h2>
+        <!-- //count user -->
+        <div class="count-box">
+          👥 Total Users: <span id="userCount">0</span>
+        </div>
+
+        <!-- //search option -->
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="🔍 Search user by email">
+          <button class="btn" id="searchBtn">Search</button>
+        </div>
+        <div id="searchResult" class="result-box"></div>
+
+
+        <button class="btn" id="loadUsers"><a href="http://localhost:3000/user">load user</a></button>
+        <button class="btn"><a href="http://localhost:3000/user/new">add user</a>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

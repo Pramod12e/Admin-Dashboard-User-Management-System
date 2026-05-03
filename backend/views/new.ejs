@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add user</title>
+    <style>
+        /* CENTER PAGE */
+        .form-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #121212;
+        }
+
+        /* FORM BOX */
+        .form-box {
+        width: 350px;
+        background: #1e293b;
+        padding: 25px;
+        border-radius: 15px;
+        border: 1px solid #3b82f6;
+        box-shadow: 0 8px 25px rgba(59,130,246,0.2);
+        }
+
+        /* TITLE */
+        .form-box h2 {
+        text-align: center;
+        color: white;
+        margin-bottom: 15px;
+        }
+
+        /* INPUTS + TEXTAREA */
+        .form-box input,
+        .form-box textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: 1px solid #3b82f6;
+        background: #0f172a;
+        color: white;
+        outline: none;
+        }
+
+        /* TEXTAREA FIX */
+        .form-box textarea {
+        resize: none;
+        height: 80px;
+        }
+
+        /* PLACEHOLDER */
+        .form-box input::placeholder,
+        .form-box textarea::placeholder {
+        color: #94a3b8;
+        }
+
+        /* FOCUS EFFECT */
+        .form-box input:focus,
+        .form-box textarea:focus {
+        border: 1px solid #60a5fa;
+        box-shadow: 0 0 8px rgba(59,130,246,0.5);
+        }
+
+        /* BUTTON */
+        .btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        background: #3b82f6;
+        color: white;
+        cursor: pointer;
+        margin-top: 10px;
+        }
+
+        .btn:hover {
+        background: #2563eb;
+        }
+
+        /* ERROR TEXT */
+        #errorMsg {
+        font-size: 13px;
+        margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+    <form class="form-box" action="/user" method="POST">
+        
+        <h2>Add User</h2>
+
+        <input type="email" name="emal" placeholder="Enter Email" required>
+
+        <textarea name="username" placeholder="Enter Username"></textarea>
+
+        <input type="password" id="password" placeholder="Password" name="password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+        <p id="errorMsg"></p>
+
+        <button class="btn">Submit</button>
+
+    </form>
+    </div>
+    <script>
+        document.getElementById("confirmPassword").addEventListener("input", function () {
+        const pass = document.getElementById("password").value;
+        const confirmPass = this.value;
+        const error = document.getElementById("errorMsg");
+
+        if (confirmPass === "") {
+            error.innerText = "";
+        } else if (pass !== confirmPass) {
+            error.innerText = "Passwords do not match ❌";
+            error.style.color = pass === confirmPass ? "green" : "red";
+        } else {
+            error.innerText = "Passwords match ✅";
+            error.style.color = "green";
+        }
+        });
+    </script>
+</body>
+</html>

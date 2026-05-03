@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            }
+
+            th {
+            background: #e2e8f0;
+            padding: 10px;
+            text-align: left;
+            }
+
+            td {
+            padding: 10px;
+            border-bottom: 1px solid #e5e7eb;
+            }
+            button{
+                background-color: blue;
+                color:white;
+                border-radius:10px;
+            }
+    </style>
+</head>
+<body>
+    
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>user</th>
+            <th>role</th>
+        </tr>
+        <%for(ress of result){%>
+            <tr>
+                <td><%=ress.id%></td>
+                <td><%=ress.emal%></td>
+                <td><%=ress.username%></td>
+                <td><%=ress.role%></td>
+            </tr>
+        <%}%>
+
+</body>
+</html>
